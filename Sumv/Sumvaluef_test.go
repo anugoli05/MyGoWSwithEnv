@@ -4,10 +4,19 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"github.com/anugoli05/MyGoWSwithEnv/.MyPackages"
 )
 
 //TestSumvalue function validates Sumvalue function
 func TestSumvalue(t *testing.T) {
+	config, err :=util.LoadConfig("../..")//  ../.. go to parent folder to get the config
+	if err!= nil{
+		t.Fatal("cannt load config: ", err)
+	}
+    
+	
+	t.Logf("\nPRINT TESTENV VARIABLE %s", config.TestEnv)
+
 	t.Logf("\n-----------------------------------------------------------------------")
 	t.Logf("\n-----------------------------------------------------------------------")
 	t.Logf("\nThis is message before calling Sum function the test go file")

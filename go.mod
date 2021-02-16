@@ -3,6 +3,6 @@ module github.com/anugoli05/MyGoWSwithEnv
 go 1.15
 
 require (
-	github.com/joho/godotenv v1.3.0
+	github.com/spf13/viper v1.7.1
 	github.com/stretchr/testify v1.7.0
 )
