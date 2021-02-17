@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"github.com/anugoli05/MyGoWSwithEnv/.MyPackages"
 )
 
 //TestMultiplyvalue function validates Sumvalue function
@@ -25,5 +26,18 @@ func TestMultiplyvalue(t *testing.T) {
 	// }
 	assert.Equal(t, 12, Mulresultvalue)
 	t.Log("Testpassed after the assert logic of max function in test go file.")
+
+	config, err := util.LoadConfig("./..")
+
+	if err!=nil{
+	t.Fatal("cannot  load config: ", err)
+   }
+   
+   t.Log("*******************************")
+   
+   
+   t.Log("Testenvironment: ", config.TestEnv)
+   t.Log("\nURL: ", config.URL)
+   t.Log("*******************************")
 
 }

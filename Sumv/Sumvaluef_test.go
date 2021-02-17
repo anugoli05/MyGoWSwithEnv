@@ -2,21 +2,16 @@ package sumvalue
 
 import (
 	"testing"
-
+    "os"
 	"github.com/stretchr/testify/assert"
 	"github.com/anugoli05/MyGoWSwithEnv/.MyPackages"
+	
+	
 )
 
 //TestSumvalue function validates Sumvalue function
 func TestSumvalue(t *testing.T) {
-	config, err :=util.LoadConfig("../..")//  ../.. go to parent folder to get the config
-	if err!= nil{
-		t.Fatal("cannt load config: ", err)
-	}
-    
 	
-	t.Logf("\nPRINT TESTENV VARIABLE %s", config.TestEnv)
-
 	t.Logf("\n-----------------------------------------------------------------------")
 	t.Logf("\n-----------------------------------------------------------------------")
 	t.Logf("\nThis is message before calling Sum function the test go file")
@@ -34,5 +29,19 @@ func TestSumvalue(t *testing.T) {
 	// }
 	assert.Equal(t, 20, Sumresultvalue)
 	t.Log("Testpassed after the assert logic of max function in test go file.")
+	
+	config, err := util.LoadConfig("./..")
+
+ if err!=nil{
+ t.Fatal("cannot  load config: ", err)
+}
+
+t.Log("*******************************")
+
+
+t.Log("Testenvironment: ", config.TestEnv)
+t.Log("\nURL: ", config.URL)
+t.Log("\nTEST_ENVIRONMENT from SUMTEST file: ", os.Getenv("TEST_ENVIRONMENT"))
+t.Log("*******************************")
 
 }

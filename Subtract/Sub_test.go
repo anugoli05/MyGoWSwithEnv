@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"github.com/anugoli05/MyGoWSwithEnv/.MyPackages"
 )
 
 func TestCallSubhere(t *testing.T) {
@@ -18,5 +19,18 @@ func TestCallSubhere(t *testing.T) {
 	
 	assert.Equal(t, 3, Subresultvalue)
 	t.Log("Testpassed after the assert logic of max function in test go file.")
+
+	config, err := util.LoadConfig("./..")
+
+	if err!=nil{
+	t.Fatal("cannot  load config: ", err)
+   }
+   
+   t.Log("*******************************")
+   
+   
+   t.Log("Testenvironment: ", config.TestEnv)
+   t.Log("\nURL: ", config.URL)
+   t.Log("*******************************")
 
 }
